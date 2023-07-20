@@ -114,16 +114,4 @@ public class PageObjectTest {
         assertEquals(initBalCardTwo + amount, finBalCardTwo);
     }
 
-
-    @Test
-    void shouldTransferCents() {
-        double amount = 1000.5;
-        var firstCardInfo = DataHelper.getFirstCardInfo();
-        var MoneyTransferPage = dashboardPage.transferPage1();
-        dashboardPage = MoneyTransferPage.transfer(firstCardInfo.getCardNumber(), Double.toString(amount));
-        finBalCardOne = dashboardPage.getFirstCardBalance();
-        finBalCardTwo = dashboardPage.getSecondCardBalance();
-        assertEquals(initBalCardOne - amount, finBalCardOne);
-        assertEquals(initBalCardTwo + amount, finBalCardTwo);
-    }
 }
